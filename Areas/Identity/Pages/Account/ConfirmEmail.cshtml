@@ -1,0 +1,40 @@
+﻿@page
+@model ConfirmEmailModel
+@{
+    ViewData["Title"] = "Confirmar Correo Electrónico";
+}
+
+<!-- Contenedor principal -->
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+            <!-- Título estilizado -->
+            <h1 class="text-center text-primary display-6 font-weight-bold mb-4">@ViewData["Title"]</h1>
+
+            <!-- Mensaje de confirmación -->
+            <div class="alert alert-success text-center">
+                <h4 class="alert-heading">¡Correo Confirmado!</h4>
+                <p>Gracias por confirmar tu dirección de correo electrónico. Ahora puedes registrar todas tus cuentas bancarias.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Estilos personalizados -->
+<style>
+    body {
+        background-color: #f5f7fa;
+    }
+
+    .text-primary {
+        color: #004085 !important;
+    }
+
+    .alert {
+        background-color: #d4edda;
+        border-color: #c3e6cb;
+        color: #155724;
+    }
+</style>
+

@@ -1,0 +1,120 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Iniciar Sesión";
+}
+
+<!-- Contenedor principal con fondo y diseño elegante -->
+<div class="container-fluid mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-5">
+            <!-- Título del formulario -->
+            <div class="text-center mb-4">
+                <h1 class="display-5 text-primary font-weight-bold">@ViewData["Title"]</h1>
+                <p class="lead">Accede a tu cuenta en <strong>Banco Prosperidad</strong> y registra tus cuentas bancarias de manera rápida y eficiente</p>
+            </div>
+
+            <!-- Formulario de inicio de sesión dentro de una tarjeta -->
+            <div class="card shadow border-0">
+                <div class="card-body p-5">
+                    <form id="account" method="post">
+                        <h3 class="text-center mb-4">¡Únete a nuestra comunidad financiera!</h3>
+                        <div asp-validation-summary="ModelOnly" class="text-danger text-center" role="alert"></div>
+
+                        <!-- Campo de Email con Floating Label -->
+                        <div class="form-floating mb-4">
+                            <input asp-for="Input.Email" class="form-control" autocomplete="username" placeholder="name@example.com" />
+                            <label asp-for="Input.Email">Correo Electrónico</label>
+                            <span asp-validation-for="Input.Email" class="text-danger"></span>
+                        </div>
+
+                        <!-- Campo de Contraseña con Floating Label -->
+                        <div class="form-floating mb-4">
+                            <input asp-for="Input.Password" class="form-control" autocomplete="current-password" type="password" placeholder="password" />
+                            <label asp-for="Input.Password">Contraseña</label>
+                            <span asp-validation-for="Input.Password" class="text-danger"></span>
+                        </div>
+
+                        <!-- Campo de Recordar sesión -->
+                        <div class="form-check mb-4">
+                            <input class="form-check-input" asp-for="Input.RememberMe" />
+                            <label asp-for="Input.RememberMe" class="form-check-label">
+                                Recordarme
+                            </label>
+                        </div>
+
+                        <!-- Botón de Inicio de Sesión -->
+                        <div class="d-grid">
+                            <button id="login-submit" type="submit" class="btn btn-primary btn-lg">Iniciar Sesión</button>
+                        </div>
+
+                        <!-- Enlaces adicionales -->
+                        <div class="mt-4 text-center">
+                            <p>
+                                <a id="forgot-password" asp-page="./ForgotPassword" class="link-secondary">¿Olvidaste tu contraseña?</a>
+                            </p>
+                            <p>
+                                <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl" class="link-secondary">Registrarse como nuevo cliente</a>
+                            </p>
+                            <p>
+                                <a id="resend-confirmation" asp-page="./ResendEmailConfirmation" class="link-secondary">Reenviar confirmación de correo</a>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Estilos personalizados para darle vida al diseño -->
+<style>
+    body {
+        background-color: #f0f2f5;
+    }
+
+    .text-primary {
+        color: #004085 !important;
+    }
+
+    .btn-primary {
+        background-color: #0056b3;
+        border-color: #004085;
+    }
+
+    .btn-primary:hover {
+        background-color: #004085;
+        border-color: #003366;
+    }
+
+    .form-floating label {
+        color: #555;
+    }
+
+    .form-floating input:focus {
+        border-color: #004085;
+        box-shadow: 0 0 0 0.2rem rgba(0, 64, 133, 0.25);
+    }
+
+    .card {
+        border-radius: 15px;
+    }
+
+    .card-body {
+        background-color: #fff;
+        border-radius: 15px;
+    }
+
+    .link-secondary {
+        color: #0056b3;
+    }
+
+    .link-secondary:hover {
+        color: #003366;
+    }
+</style>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
